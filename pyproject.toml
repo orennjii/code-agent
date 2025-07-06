@@ -1,0 +1,147 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langchain-multi-agent-workflow"
+version = "1.0.0"
+description = "基于LangChain和LangGraph的多智能体协作自动化软件开发工作流"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Multi-Agent Team", email = "team@example.com"},
+]
+keywords = [
+    "langchain",
+    "langgraph", 
+    "multi-agent",
+    "workflow",
+    "automation",
+    "ai",
+    "llm"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "langchain>=0.2.16",
+    "langgraph>=0.2.9",
+    "langchain-google-genai>=1.0.10",
+    "langchain-community>=0.2.16",
+    "langchain-core>=0.2.38",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.8.2",
+    "typing-extensions>=4.12.2",
+    "google-generativeai>=0.3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.2",
+    "pytest-asyncio>=0.23.8",
+    "black>=24.8.0",
+    "flake8>=7.1.1",
+    "mypy>=1.11.1",
+]
+notebook = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.29.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/langchain-multi-agent-workflow"
+Repository = "https://github.com/example/langchain-multi-agent-workflow"
+Issues = "https://github.com/example/langchain-multi-agent-workflow/issues"
+Documentation = "https://github.com/example/langchain-multi-agent-workflow#readme"
+
+[project.scripts]
+multi-agent-workflow = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 100
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = [
+    "--verbose",
+    "--tb=short",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "tests/*",
+    "examples/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]

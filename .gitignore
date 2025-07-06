@@ -1,0 +1,45 @@
+# 项目文件
+__pycache__/
+generated_code/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 单元测试 / 覆盖率报告
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 环境变量
+.env
+
+# VS Code
+.vscode/
+
+# 项目特定文件
+output/
+generated_code/
+tests/
+docs/
+logs/
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

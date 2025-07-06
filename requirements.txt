@@ -1,0 +1,16 @@
+langchain==0.2.16
+langgraph==0.2.9
+langchain-google-genai==1.0.10
+langchain-community==0.2.16
+langchain-core==0.2.38
+python-dotenv==1.0.1
+pydantic==2.8.2
+typing-extensions==4.12.2
+pytest==8.3.2
+pytest-asyncio==0.23.8
+black==24.8.0
+flake8==7.1.1
+mypy==1.11.1
+jupyter==1.0.0
+ipykernel==6.29.5
+google-generativeai==0.3.2
